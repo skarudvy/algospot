@@ -1,44 +1,36 @@
-//
-// 코드6.4 소풍 문제를 해결하는(잘못된) 재귀 호출 코드
-//
-
 #include <iostream>
 using namespace std;
 
-int n;
-bool areFriends[10][10];
-int ret;
-//taken[i] = i번째 학생이 짝을 이미 찾았으면 true, 아니면 false
+struct bytes {
+	char byte_1;
+	char byte_2;
+	char byte_3;
+	char byte_4;
+};
 
-int countPairings(bool taken[10])
+int main(int argc, char **argv)
 {
-	//기저 사례: 모든 학생이 짝을 찾았으면 한 가지 방법을 찾았으니 종료한다.
-	bool finished = true;
-	for (int i = 0; i < n; i++)
-	{
-		if (!taken[i])
-			finished = false;
+	int count = 0;
+	register int i = 0;
+
+	cin >> count;
+
+	for (; i < count; i++) {
+		unsigned int number_bf;
+		unsigned int number_af;
+		struct bytes *bf = (struct bytes *) &number_bf;
+		struct bytes *af = (struct bytes *) &number_af;
+
+		cin >> number_bf;
+
+		af->byte_1 = bf->byte_4;
+		af->byte_2 = bf->byte_3;
+		af->byte_3 = bf->byte_2;
+		af->byte_4 = bf->byte_1;
+
+		cout << number_af << endl;
+
 	}
-
-	if (finished)
-		return 1;
-
-	//서로 친구인 두 학생을 찾아 짝을 지어 준다.
-	for (int i = 0; i < n; ++i)
-		for (int j = 0; j < n; ++j)
-			if (!taken[i] && !taken[j] && areFriends[i][j]) {
-				taken[i] = taken[j] = true;
-				ret += countPairings(taken);
-				taken[i] = taken[j] = false;
-			}
-	return ret;
-	
-}
-
-int main()
-{
-	cout << "Hello, World!!!" << endl;
-	countPairings()
 
 	return 0;
 }
