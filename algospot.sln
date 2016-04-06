@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chapter01", "Chapter01\Chapter01.vcxproj", "{BA02018F-0FEE-47A1-BBD2-660248881EFB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ENDIANS_02", "ENDIANS_02\ENDIANS_02.vcxproj", "{BA02018F-0FEE-47A1-BBD2-660248881EFB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ENDIANS_01", "ENDIANS_01\ENDIANS_01.vcxproj", "{B5097DE0-FE08-4567-9912-28C8E9943685}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,14 @@ Global
 		{BA02018F-0FEE-47A1-BBD2-660248881EFB}.Release|x64.Build.0 = Release|x64
 		{BA02018F-0FEE-47A1-BBD2-660248881EFB}.Release|x86.ActiveCfg = Release|Win32
 		{BA02018F-0FEE-47A1-BBD2-660248881EFB}.Release|x86.Build.0 = Release|Win32
+		{B5097DE0-FE08-4567-9912-28C8E9943685}.Debug|x64.ActiveCfg = Debug|x64
+		{B5097DE0-FE08-4567-9912-28C8E9943685}.Debug|x64.Build.0 = Debug|x64
+		{B5097DE0-FE08-4567-9912-28C8E9943685}.Debug|x86.ActiveCfg = Debug|Win32
+		{B5097DE0-FE08-4567-9912-28C8E9943685}.Debug|x86.Build.0 = Debug|Win32
+		{B5097DE0-FE08-4567-9912-28C8E9943685}.Release|x64.ActiveCfg = Release|x64
+		{B5097DE0-FE08-4567-9912-28C8E9943685}.Release|x64.Build.0 = Release|x64
+		{B5097DE0-FE08-4567-9912-28C8E9943685}.Release|x86.ActiveCfg = Release|Win32
+		{B5097DE0-FE08-4567-9912-28C8E9943685}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
