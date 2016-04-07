@@ -3,42 +3,36 @@
 #include <iomanip>
 using namespace std;
 
-int main(int argc, char **argv)
+int main()
 {
-//	unsigned int number = 305419896;
-//	unsigned int number = 2018915346;
-//	unsigned int number = 1;
-	unsigned int number = 100000;
-//	unsigned int number = 4294967295;
-
+	int count = 0;
+	unsigned int number = 0;
 	unsigned int nResult;
-
-	stringstream stream;
-	stream.clear();
-	string temp = "0x";
-
-	//cout << hex << number << endl;
-
-	//stream << "ox" << hex << number;
-	stream << "0x" << std::uppercase << setfill('0') << setw(8) << std::hex << number; //oX1234567
-	
-	//cout << stream.str() << endl;
-
-	temp = temp + stream.str()[6 + 2];
-	temp = temp + stream.str()[7 + 2];
-	temp = temp + stream.str()[4 + 2];
-	temp = temp + stream.str()[5 + 2];
-	temp = temp + stream.str()[2 + 2];
-	temp = temp + stream.str()[3 + 2];
-	temp = temp + stream.str()[0 + 2];
-	temp = temp + stream.str()[1 + 2];
-
 	char *endptr;
+	stringstream stream;
 
-	nResult = strtol(temp.c_str() , &endptr, 16);
+	cin >> count;
 
-	unsigned int desdf = 0xA0860100;
+	for(int i=0; i < count; i++)
+	{
+		cin >> number;
 
-	cout << dec << desdf << endl;
-	cout << nResult << endl;
+		//stream.clear();
+		stream.str("");
+		string temp = "0x";
+
+		stream << "0x" << std::uppercase << setfill('0') << setw(8) << std::hex << number; //oX1234567
+	
+		temp = temp + stream.str()[6 + 2];
+		temp = temp + stream.str()[7 + 2];
+		temp = temp + stream.str()[4 + 2];
+		temp = temp + stream.str()[5 + 2];
+		temp = temp + stream.str()[2 + 2];
+		temp = temp + stream.str()[3 + 2];
+		temp = temp + stream.str()[0 + 2];
+		temp = temp + stream.str()[1 + 2];
+
+		cout << strtoul(temp.c_str(), &endptr, 16) << endl;
+
+	}
 }
