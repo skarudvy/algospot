@@ -4,9 +4,11 @@
 #include <stack>
 using namespace std;
 
+stack<char> st;
+
 bool isStartBracket(char bracket)
 {
-	if(bracket == '(' || bracket == '{' || bracket == '[')
+	if (bracket == '(' || bracket == '{' || bracket == '[')
 		return true;
 	else
 		return false;
@@ -14,58 +16,57 @@ bool isStartBracket(char bracket)
 
 bool isMatchBracket(char start, char end)
 {
-	if(start == '(' && end == ')')
+	if (start == '(' && end == ')')
 		return true;
-	else if(start == '{' && end == '}')
+	else if (start == '{' && end == '}')
 		return true;
-	else if(start == '[' && end == ']')
+	else if (start == '[' && end == ']')
 		return true;
-	else 
+	else
 		return false;
+}
+
+bool IsValidBracket(string bracket_list)
+{
+	while (!st.empty())
+		st.pop();
+
+	int length = bracket_list.length();
+	if (length % 2 != 0)
+		return false;
+
+	for (int bracket_index = 0; bracket_index < length; bracket_index++)
+	{
+		if (isStartBracket(bracket_list[bracket_index]))
+		{
+			st.push(bracket_list[bracket_index]);
+		}
+		else
+		{
+			if (!st.empty() && isMatchBracket(st.top(), bracket_list[bracket_index]))
+				st.pop();
+			else
+				return false;
+		}
+	}
+
+	return true;
 }
 
 int main()
 {
 	int count;
-	stack<char> st;
+
 	string bracket_list;
 	cin >> count;
 
-	for(int i =0; i < count; i++)
+	for (int i = 0; i < count; i++)
 	{
-		while(!st.empty())
-			st.pop();
-
 		cin >> bracket_list;
 
-		int length = bracket_list.length();
-		if(length % 2 != 0)
-		{
-			cout << "NO" << endl;
-			continue;
-		}
-
-		for(int bracket_index = 0; bracket_index < length; bracket_index++)
-		{
-			if(isStartBracket(bracket_list[bracket_index]))
-			{
-				st.push(bracket_list[bracket_index]);
-			}
-			else
-			{
-				if(!st.empty() && isMatchBracket(st.top(), bracket_list[bracket_index]))
-				{
-					st.pop();
-				}
-				else				
-				{
-					cout << "NO" << endl;
-					break;
-				}
-			}
-		}
-
-		if(st.empty())
+		if (IsValidBracket(bracket_list))
 			cout << "YES" << endl;
+		else
+			cout << "NO" << endl;
 	}
 }
